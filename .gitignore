@@ -1,0 +1,55 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Virtual environments 
+**/venv/
+**/.venv/
+**/env/
+**/.env/
+**/envs/
+**/.envs/
+**/virtualenv/
+venv/
+.env
+.envrc
+.Python
+.python-version
+pip-wheel-metadata/
+
+# Packaging / build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+wheels/
+pip-wheel-metadata/
+
+# Installer / logs / temp
+pip-log.txt
+pip-delete-this-directory.txt
+*.log
+logs/
+tmp/
+temp/
+
+# Testing / coverage
+.pytest_cache/
+.tox/
+.nox/
+.coverage
+.coverage.*
+htmlcov/
+
+# C extensions
+*.so
+
+# Jupyter
+.ipynb_checkpoints
+
+# IDEs / editors
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
