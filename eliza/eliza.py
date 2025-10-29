@@ -7,7 +7,7 @@ class Eliza():
         self.patterns_file = patterns_file
         self.patterns = []
         self.reflections = {}
-        self.defaults = {}
+        self.defaults = []
     
     def load_patterns(self):
         with open(self.patterns_file, "r") as patterns_file:
@@ -68,13 +68,13 @@ class Eliza():
 
                 return response
 
-            else:
-                return random.choice(self.defaults)
+            
+        return random.choice(self.defaults)
     
     
     
     def start(self):
-        
+        self.load_patterns()
 
         print(r"""
              ______     __         __     ______     ______    
@@ -84,5 +84,15 @@ class Eliza():
               \/_____/   \/_____/   \/_/   \/_____/   \/_/\/_/ 
               """)
 
-        print("Welcome to the Eliza chatbot! Ask anything:")
+        print("Welcome to the Eliza chatbot! Type 'quit' to exit:\n")
+        
+        while True:
+            user_input = input()
+            
+            if user_input.lower().strip() == 'quit':
+                print("Eliza: Goodbye! Take care.")
+                break
+            
+            response = self.match_and_respond(user_input)
+            print(f"Eliza: {response}\n")
 

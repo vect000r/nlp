@@ -4,7 +4,6 @@ from eliza import Eliza
 def main():
     
     eliza = Eliza('patterns.json')
-    eliza.load_patterns()
     eliza.start()
 
 
