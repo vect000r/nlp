@@ -28,6 +28,51 @@
       ]
     },
     {
+      "pattern": "i wish (.*)",
+      "responses": [
+        "What would it mean if you got your wish?",
+        "Why do you wish {0}?",
+        "What's stopping you from {0}?",
+        "Suppose you soon got to {0}, then what?"
+      ]
+    },
+    {
+      "pattern": "i hate (.*)",
+      "responses": [
+        "What about {0} makes you feel that way?",
+        "Have you always hated {0}?",
+        "Does hating {0} make you feel better or worse?",
+        "What would happen if you didn't hate {0}?"
+      ]
+    },
+    {
+      "pattern": "i love (.*)",
+      "responses": [
+        "What do you love most about {0}?",
+        "How long have you loved {0}?",
+        "What does {0} mean to you?",
+        "Does {0} love you back?"
+      ]
+    },
+    {
+      "pattern": "i'm afraid (.*)",
+      "responses": [
+        "What makes you afraid of {0}?",
+        "Do you think your fear of {0} is rational?",
+        "When did you first become afraid of {0}?",
+        "How does this fear affect your daily life?"
+      ]
+    },
+    {
+      "pattern": "i'm worried (.*)",
+      "responses": [
+        "What's the worst that could happen with {0}?",
+        "How long have you been worried about {0}?",
+        "Have you talked to anyone else about {0}?",
+        "What would help you worry less about {0}?"
+      ]
+    },
+    {
       "pattern": "why don't you (.*)",
       "responses": [
         "Do you really think I don't {0}?",
@@ -217,6 +262,91 @@
       ]
     },
     {
+      "pattern": "i feel like (.*)",
+      "responses": [
+        "Why do you feel like {0}?",
+        "Does it bother you to feel like {0}?",
+        "How long have you felt like {0}?"
+      ]
+    },
+    {
+      "pattern": "i always (.*)",
+      "responses": [
+        "Can you think of a specific time when you {0}?",
+        "Always? That's a strong word. Really always?",
+        "What would happen if you didn't {0}?",
+        "When did you start to always {0}?"
+      ]
+    },
+    {
+      "pattern": "i never (.*)",
+      "responses": [
+        "Never? Not even once?",
+        "Why do you think you never {0}?",
+        "What would it take for you to {0}?",
+        "Does it bother you that you never {0}?"
+      ]
+    },
+    {
+      "pattern": "i sometimes (.*)",
+      "responses": [
+        "What determines whether you {0}?",
+        "Can you give me an example of when you {0}?",
+        "Would you like to {0} more often, or less?"
+      ]
+    },
+    {
+      "pattern": "i remember (.*)",
+      "responses": [
+        "What about {0} stands out in your memory?",
+        "Why do you think you remember {0} now?",
+        "What feelings come up when you remember {0}?",
+        "Do you often think about {0}?"
+      ]
+    },
+    {
+      "pattern": "i forget (.*)",
+      "responses": [
+        "Why do you think you forget {0}?",
+        "Is forgetting {0} a problem for you?",
+        "What would help you remember {0}?"
+      ]
+    },
+    {
+      "pattern": "i'm confused (.*)",
+      "responses": [
+        "What specifically confuses you about {0}?",
+        "Let's try to work through this confusion together.",
+        "When did you start feeling confused about {0}?",
+        "What would make {0} clearer for you?"
+      ]
+    },
+    {
+      "pattern": "i'm angry (.*)",
+      "responses": [
+        "What made you angry about {0}?",
+        "How do you typically express your anger?",
+        "Is your anger about {0} justified, do you think?",
+        "What would help you feel less angry about {0}?"
+      ]
+    },
+    {
+      "pattern": "i'm happy (.*)",
+      "responses": [
+        "That's wonderful! What makes you happy about {0}?",
+        "How long have you been happy about {0}?",
+        "What does being happy about {0} mean to you?"
+      ]
+    },
+    {
+      "pattern": "i'm lonely (.*)",
+      "responses": [
+        "I'm sorry you feel lonely. Can you tell me more about {0}?",
+        "What would help you feel less lonely about {0}?",
+        "Have you always felt lonely about {0}?"
+      ]
+    },
+    {
       "pattern": "i have (.*)",
       "responses": [
         "Why do you tell me that you've {0}?",
@@ -273,6 +403,64 @@
       ]
     },
     {
+      "pattern": "i don't want (.*)",
+      "responses": [
+        "Why don't you want {0}?",
+        "What would happen if you had to accept {0}?",
+        "Are you afraid of {0}?"
+      ]
+    },
+    {
+      "pattern": "everyone (.*)",
+      "responses": [
+        "Everyone? Surely not everyone.",
+        "Can you think of anyone who doesn't {0}?",
+        "Who specifically are you thinking of?",
+        "Why do you think everyone {0}?"
+      ]
+    },
+    {
+      "pattern": "nobody (.*)",
+      "responses": [
+        "Nobody at all? That seems unlikely.",
+        "Surely someone must {0}.",
+        "Why do you feel so alone in this?",
+        "What would it mean if someone did {0}?"
+      ]
+    },
+    {
+      "pattern": "people (.*)",
+      "responses": [
+        "What people specifically?",
+        "Do you mean anyone in particular?",
+        "How does it affect you when people {0}?"
+      ]
+    },
+    {
+      "pattern": "honestly (.*)",
+      "responses": [
+        "I appreciate your honesty. Tell me more.",
+        "What makes you say that honestly?",
+        "Why do you feel the need to emphasize honesty?"
+      ]
+    },
+    {
+      "pattern": "actually (.*)",
+      "responses": [
+        "Go on, I'm listening.",
+        "What do you mean by that?",
+        "That sounds important. Continue."
+      ]
+    },
+    {
+      "pattern": "maybe (.*)",
+      "responses": [
+        "You don't sound certain. What makes you doubtful?",
+        "What would help you be more sure about {0}?",
+        "Why only maybe?"
+      ]
+    },
+    {
       "pattern": "(.*) mother(.*)",
       "responses": [
         "Tell me more about your mother.",
@@ -290,6 +478,31 @@
         "How do you feel about your father?",
         "Does your relationship with your father relate to your feelings today?",
         "Do you have trouble showing affection with your family?"
+      ]
+    },
+    {
+      "pattern": "(.*) sister(.*)",
+      "responses": [
+        "Tell me about your relationship with your sister.",
+        "How do you get along with your sister?",
+        "What role does your sister play in your life?"
+      ]
+    },
+    {
+      "pattern": "(.*) brother(.*)",
+      "responses": [
+        "How is your relationship with your brother?",
+        "Tell me more about your brother.",
+        "Do you and your brother get along?"
+      ]
+    },
+    {
+      "pattern": "(.*) family(.*)",
+      "responses": [
+        "Tell me more about your family.",
+        "What is your family like?",
+        "How important is family to you?",
+        "How do you feel about your family?"
       ]
     },
     {
