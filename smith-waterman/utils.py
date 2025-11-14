@@ -45,7 +45,7 @@ def parse_letter(path: str) -> dict:
                 version = int(full_id[0])
                 line_id = full_id[1:]
 
-                version[version][line_id] = text
+                versions[version][line_id] = text
     
     return versions 
 
