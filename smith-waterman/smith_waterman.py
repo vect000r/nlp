@@ -1,6 +1,6 @@
 def smith_waterman(seq1: str, seq2: str, match_score: int = 2, mismatch_penalty: int = -1, gap_penalty: int = -1) -> list[list]:
-    n = len(seq1)
-    m = len(seq2)
+    m = len(seq1)
+    n = len(seq2)
     
     score = [[0 for j in range(n + 1)] for i in range(m + 1)]
     

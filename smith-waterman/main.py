@@ -1,11 +1,12 @@
-import smith_waterman
+from smith_waterman import smith_waterman
 
 def main():
     A = "AGCT"
     B = 'ACT'
     
-    
-    smith_waterman(2, -1, -1, len(A), len(B))
+    score = smith_waterman(A, B)
+
+    print(score)
 
 
 
