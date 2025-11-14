@@ -1,4 +1,8 @@
 def smith_waterman(seq1: str, seq2: str, match_score: int = 2, mismatch_penalty: int = -1, gap_penalty: int = -1) -> list[list]:
+    """
+    Implementation of the Smith-Waterman algorithm. Returns a n x m size matrix of scores where n and m are lenghts of two sequences provided by the user.
+    """
+    
     m = len(seq1)
     n = len(seq2)
     
