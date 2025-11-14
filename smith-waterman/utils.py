@@ -102,3 +102,39 @@ def traceback(score_matrix: list[list], seq1: str, seq2: str, match_score: int =
             j -= 1
     
     return ''.join(reversed(aligned_seq1)), ''.join(reversed(aligned_seq2))
+
+
+
+def find_differences(aligned_seq1, aligned_seq2, original_seq1, original_seq2):
+    """
+    Finds differences and returns them with context
+    Format: {text1, text2} : context
+    """
+    differences = []
+    i = 0
+    
+    while i < len(aligned_seq1):
+        if aligned_seq1[i] != aligned_seq2[i]:
+            # Collect the differing segment
+            diff_start = i
+            diff1 = []
+            diff2 = []
+            
+            while i < len(aligned_seq1) and aligned_seq1[i] != aligned_seq2[i]:
+                if aligned_seq1[i] != '-':
+                    diff1.append(aligned_seq1[i])
+                if aligned_seq2[i] != '-':
+                    diff2.append(aligned_seq2[i])
+                i += 1
+            
+            # Get context 
+            diff2_str = ''.join(diff2) if diff2 else 'ø'
+            
+            differences.append({
+                'diff': (diff1_str, diff2_str),
+                'position': diff_start
+            })
+        else:
+            i += 1
+    
+    return differences
