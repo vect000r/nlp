@@ -139,3 +139,17 @@ def find_differences(aligned_seq1, aligned_seq2, original_seq1, original_seq2):
             i += 1
     
     return differences
+
+
+
+def compare_versions(text1, text2):
+    """
+    Compare two text versions and output differences
+    """
+    score_matrix = smith_waterman(text1, text2)
+    
+    aligned1, aligned2 = traceback(score_matrix, text1, text2)
+    
+    differences = find_differences(aligned1, aligned2, text1, text2)
+    
+    return differences
