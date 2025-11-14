@@ -128,7 +128,8 @@ def find_differences(aligned_seq1, aligned_seq2, original_seq1, original_seq2):
                 i += 1
             
             # Get context 
-            diff2_str = ''.join(diff2) if diff2 else 'ø'
+            diff1_str = ''.join(diff1) if diff1 else 'x'
+            diff2_str = ''.join(diff2) if diff2 else 'x'
             
             differences.append({
                 'diff': (diff1_str, diff2_str),
