@@ -22,3 +22,11 @@ def ngrams(words: list, n: int) -> list:
     if len(words) < n:
         return []
     return [tuple(words[i:i+n]) for i in range(len(words)-n+1)]
+
+def overlap(list_1: list, list_2: list) -> list:
+    set_1 = set(list_1)
+    set_2 = set(list_2)
+
+    intersection = set_1.intersection(set_2)
+    return len(intersection), len(set_1), len(set_2)
+
