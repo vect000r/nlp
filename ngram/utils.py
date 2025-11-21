@@ -1,7 +1,5 @@
 import xml.etree.ElementTree as ET
 import re
-import random
-from collections import Counter
 
 FILE_1 = "POL0005_beczkowska_kedy-droga.xml"
 FILE_2 = "POL0006_beczkowska_w-mieszczanskim-gniezdzie.xml"
@@ -12,7 +10,7 @@ def parse_text(path: str) -> list:
         root = tree.getroot()
         text = "".join(root.itertext())
         text = text.lower()
-        words = re.findall(r'\b\w+\b')
+        words = re.findall(r'\b\w+\b', text)
         return words
     
     except FileNotFoundError:
