@@ -17,3 +17,8 @@ def parse_text(path: str) -> list:
     
     except FileNotFoundError:
         print(f"File was not found on specified path: {path}")
+
+def ngrams(words: list, n: int) -> list:
+    if len(words) < n:
+        return []
+    return [tuple(words[i:i+n]) for i in range(len(words)-n+1)]
