@@ -13,7 +13,24 @@ class BasicTokenizer:
 
 
     def merge(self, token_ids, pair, new_index):
-        pass
+        _tokens = []
+        i = 0
+
+        while i < len(token_ids):
+            if (i < len(token_ids) - 1) and (token_ids[i] == pair[0]) and (token_ids[i + 1] == pair[1]):
+                _tokens.append(new_index)
+                i += 2
+            else:
+                _tokens.append(token_ids[i])
+                i += 1
+        return _tokens
+    
+    def get_vocab(self):
+        vocab = {idx: bytes([idx]) for idx in range(256)}
+        for (p0, p1), idx in self.merges.items():
+            vocab[idx] = vocab[p0] + vocab[p1]
+        return vocab
+    
 
     def train(self):
         """
@@ -42,4 +59,7 @@ class BasicTokenizer:
         """
         Decodes given text.
         """
-        pass
+        vocab = self.get_vocab()
+        b_tokens = b"".join(vocab[idx] for idx in token_ids)
+        text = b_tokens.decode('utf-8', errors="replace")
+        return text
