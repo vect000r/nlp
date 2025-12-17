@@ -1,3 +1,9 @@
+class VocabSizeException(Exception):
+    pass
+
+
+
+
 class BasicTokenizer:
     def __init__(self):
         self.vocab_size = 1024
@@ -39,11 +45,32 @@ class BasicTokenizer:
         return vocab
     
 
-    def train(self):
+    def train(self, text, verbose=False):
         """
         Function which trains the tokenizer on a given text and vocab size.
         """
-        pass
+        try:
+            if self.vocab_size < 265:
+                raise VocabSizeException
+            
+            num_merges = self.vocab_size - 256
+            token_ids = list(text.encode('utf-8'))
+
+            for i in range(num_merges):
+                stats = self.get_stats(token_ids)
+                top_pair = max(stats, key=stats.get)
+                index = 256 + i
+
+                if verbose:
+                    print(f"Merged pair: {top_pair} -> {index}")
+                    token_ids = self.merge(token_ids, top_pair, index)
+                    self.merges[top_pair] = index
+            return self.merges
+
+
+        except VocabSizeException as err:
+            print("Vocab size is under 256!")
+            return {}
 
     def encode(self, text):
         """
@@ -62,7 +89,7 @@ class BasicTokenizer:
         return token_ids
     
 
-    def decode(self):
+    def decode(self, token_ids):
         """
         Decodes given text.
         """
