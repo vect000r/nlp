@@ -4,6 +4,9 @@ class BasicTokenizer:
         self.merges ={}
 
     def get_stats(self, token_ids):
+        """
+        Identifies consecutive pairs and their counts from token ids.
+        """
         counts = {}
         
         for pair in zip(token_ids, token_ids[1:]):
@@ -13,6 +16,10 @@ class BasicTokenizer:
 
 
     def merge(self, token_ids, pair, new_index):
+        """
+        Handles the merging of pairs.
+        """
+        
         _tokens = []
         i = 0
 
