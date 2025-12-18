@@ -1,10 +1,10 @@
+from tokenizer import TrainableTokenizer
+
 class VocabSizeException(Exception):
     pass
 
 
-
-
-class BasicTokenizer:
+class BasicTokenizer(TrainableTokenizer):
     def __init__(self):
         self.vocab_size = 1024
         self.merges ={}
