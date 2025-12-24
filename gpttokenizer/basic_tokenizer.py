@@ -47,7 +47,7 @@ class BasicTokenizer(TrainableTokenizer):
 
     def train(self, text, verbose=False):
         """
-        Function which trains the tokenizer on a given text and vocab size.
+        Function which trains the tokenizer on a given text.
         """
         try:
             if self.vocab_size < 265:
