@@ -72,8 +72,42 @@ class GPT4Tokenizer(BasicTokenizer):
             print("Vocab size is under 256")
             return {}
 
+    def encode_chunks(self, chunk_bytes):
+        chunk_token_ids = list(chunk_bytes)
+
+        while len(chunk_token_ids) >= 2:
+            stats = {}
+            self.get_stats(chunk_token_ids, stats)
+
+            pair = min(stats, key= lambda x: self.merges.get(x, float("inf")))
+            if pair not in self.merges:
+                break
+
+            index = self.merges[pair]
+            chunk_token_ids = self.merge(chunk_token_ids, pair, index)
+        
+        return chunk_token_ids
+
+
     def encode(self, text):
-        pass
+        text_chunks = re.findall(self.pattern, text)
+        token_ids = []
+
+        for chunk in text_chunks:
+            chunk_bytes = chunk.encode("utf-8")
+            chunk_token_ids = self.encode_chunks(chunk_bytes)
+            token_ids.extend(chunk_token_ids)
+        return token_ids
 
     def decode(self, token_ids):
-        pass
+        chunk_bytes = []
+
+        for token in token_ids:
+            if token in self.vocab:
+                chunk_bytes.append(self.vocab[token])
+            else: 
+                raise ValueError(f"Invalid token id {token}")
+
+            byte_token_ids = b"".join(chunk_bytes)
+            text = byte_token_ids.decode('utf-8', errors="replace")
+            return text            
