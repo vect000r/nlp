@@ -51,13 +51,17 @@ class GPT4Tokenizer(BasicTokenizer):
             
             num_merges = self.vocab_size - 256
             text_chunks = re.findall(self.pattern, text)
-            token_ids = [list(chunk.encode('utf-8') for chunk in text_chunks)]
+            token_ids = [list(chunk.encode('utf-8')) for chunk in text_chunks]
             self.vocab = {idx: bytes([idx]) for idx in range(256)}
 
             for i in range(num_merges):
                 stats = {}
                 for chunk_token in token_ids:
                     self.get_stats(chunk_token, stats)
+                
+                if not stats:
+                    break
+                
                 top_pair = max(stats, key=stats.get)
                 index = 256 + i
                 if verbose:
@@ -110,4 +114,4 @@ class GPT4Tokenizer(BasicTokenizer):
 
             byte_token_ids = b"".join(chunk_bytes)
             text = byte_token_ids.decode('utf-8', errors="replace")
-            return text            
+        return text            
