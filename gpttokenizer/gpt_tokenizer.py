@@ -1,8 +1,6 @@
 import regex as re
 from basic_tokenizer import BasicTokenizer, VocabSizeException
 
-# TODO: OVERRIDE INHERTIED METHODS 
-
 
 class GPT4Tokenizer(BasicTokenizer):
     def __init__(self):
